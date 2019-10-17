@@ -13,13 +13,6 @@ void loop() {
   int cdsValue = analogRead(cds);
   Serial.print("cds=");
   Serial.println(cdsValue);
-  if (cdsValue > 200) {
-    digitalWrite(led, HIGH);
-    Serial.println("LED ON(cds>200)");
-  }
-  else {
-    digitalWrite(led, LOW);
-    Serial.println("LED OFF(cds<200)");
-  }
-  delay(200);
+  analogWrite(led, cdsValue);
+
 }
